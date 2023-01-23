@@ -119,7 +119,7 @@
                     d3.text("paket-wifi.csv", function(data) {
                         var parsedCSV = d3.csv.parseRows(data);
         
-                        var container = d3.select("tbody.table-group-divider")
+                        var container = d3.select("tbody.tablebody")
         
                             .selectAll("tr")
                                 .data(parsedCSV).enter()
