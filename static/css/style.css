@@ -1491,7 +1491,7 @@ img {
   /* padding-left: 60px; */
   font-size: 18px;
   border: white;
-  border-style: solid;
+  /* border-style: solid; */
   border-width: 2px;
   /* justify-content: center; */
 }
@@ -3542,7 +3542,7 @@ blockquote.blockquote-left .parson {
   width: 100%;
   font-size: 14px;
   color: #fff;
-  background: #a4a6b88f;
+  background: #00000080;
   border-radius: 3px;
 }
 .form-control::-webkit-input-placeholder{color: #e9e9ec;}
