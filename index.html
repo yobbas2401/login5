@@ -77,38 +77,26 @@
                   <input type="hidden" name="popup" value="true" />
                   <div class="row">
                     <div class="col-md-6">
-                      <div class="form-group">
-                        
-                        <label for="inputUser" class="form-label"></label>
-                        <div class="md-form-line-wrap">
-                          <img class="ico" src="static/img/user.svg" alt="#">
-                          <input id="inputUser" type="text" name="username" placeholder="Usuario" class="form-control " autofocus required>
+                      
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend form-group">
+                          <span class="input-group-text bi-person-circle" style="color: #e9e9e9; font-size: x-large;"></span>
+                          <input id="inputUser" type="text" name="username" placeholder="User" class="form-control " autofocus required>
+                          <span class="input-group-text bi-qr-code-scan" style="color: #e9e9e9; font-size: x-large;"></span>
                         </div>
                       </div>
                     </div>
                     <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="inputPassword" class="form-label"></label>
-                        <div class="md-form-line-wrap">
-                          <img class="ico" src="static/img/password.svg" alt="#">
-                          <input id="inputPassword" type="password" name="password" placeholder="Contraseña"
-                            class="form-control" required>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend form-group">
+                          <span class="input-group-text bi-lock-fill" style="color: #e9e9e9; font-size: x-large;"></span>
+                          <input id="inputPassword" type="password" name="password" placeholder="Pass" class="form-control" required>
                         </div>
                       </div>
                     </div>
-                    
-
-                      <!--$(if trial == 'yes')
-
-                        <div class="col-md-6">
-                          <a class="btn btn-block btn-light" href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)"><span class="btn-elem-wrap"><span class="text" style="color: darkblue">PRUEBA GRATIS</span></span></a>
-                        </div>
-                      $(endif)-->
-                    <br>
-                    <br>
-                    <div class="col-md-12" style="margin-top: 15px;">
-                      <button type="submit" class="btn btn-block btn-light"><span class="btn-elem-wrap"><span
-                            class="text theme-color"><i class="bi bi-box-arrow-in-right" style="font-size:25px ;"></i>CONECTAR</span></span></button>
+                                
+                    <div class="col-md-12" style="margin-top: 5px;margin-bottom: 15px;">
+                      <button type="submit" class="btn btn-block btn-light"><i class="bi-box-arrow-in-right" style="font-size:25px ;"></i>CONECTAR</button>
                     </div>
                   </div>
                 </form>
@@ -126,7 +114,7 @@
                     <th scope="col">Precio</th>
                   </tr>
                 </thead>
-                <tbody class="table-group-divider">
+                <tbody class="tablebody">
                   <script type="text/javascript" charset="utf-8">
                     d3.text("paket-wifi.csv", function(data) {
                         var parsedCSV = d3.csv.parseRows(data);
