@@ -1,0 +1,440 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="hospot">
+    <meta name="keywords" content="hospot">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Logout</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link href="static\plugin\bootstrap\css\bootstrap.min.css" rel="stylesheet">
+    <link href="static\plugin\font-awesome\css\fontawesome-all.min.css" rel="stylesheet">
+    <link href="static\plugin\et-line\style.css" rel="stylesheet">
+    <link href="static\plugin\themify-icons\themify-icons.css" rel="stylesheet">
+    <link href="static\plugin\owl-carousel\css\owl.carousel.min.css" rel="stylesheet">
+    <link href="static\plugin\magnific\magnific-popup.css" rel="stylesheet">
+    <link href="static\css\style.css" rel="stylesheet">
+    <link href="static\css\color\default.css" rel="stylesheet" id="color_theme">
+  <link href="static\plugin\bootstrap\bootstrap-icons.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target="#navbar" data-offset="98">
+   <div id="loading">
+      <div class="load-circle"><span class="one"></span></div>
+    </div>
+    <header>
+      <nav class="navbar header-nav navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img class="light-logo" src="static\img\logo-light.svg" title="" alt="">
+            <img class="dark-logo" src="static\img\logo.svg" title="" alt="">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+              <span></span>
+              <span></span>
+              <span></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbar">
+            <ul class="navbar-nav ml-auto align-items-center">
+              <li><a class="nav-link" href="login.html">Ingresar otra ficha</a></li>
+              <li><a class="nav-link" href="#service">Servicios</a></li>
+              <li><a class="nav-link" href="#price">Paquetes de internet</a></li>
+              <li><a class="nav-link" href="#contact">Contacto</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav> 
+    </header>
+    <main>
+      <section id="home" class="home-banner-03 theme-off bg-effect-box">
+        <div class="bg-effect bg-cover" style="background-image: url(static/img/banner-effect-6.svg);"></div>
+        <div id="particles_effect" class="particles-effect"></div>
+        <div class="container">
+          <div class="row align-items-center justify-content-center p-30px-tb sm-p-60px-b">
+            <div class="col-lg-5 md-p-30px-tb">
+              <h5 class="white-color">Gracias por su preferencia</h5>
+              <div class="card border-success mb-3" style="min-width:17rem; margin-top: 35px;">
+                <div class="card-header bg-danger border-danger text-center"><h6>Estado de conexion</h6></div>
+                <div class="card-body">
+                <h6 class="card-title text-center">Desconectado</h6>
+                <ul class="list-group" >
+                  <h3 class="list-group-item d-flex justify-content-between align-items-center">
+                    Usuario:
+                    <span class="badge badge-pill badge-light">$(username)</span>
+                  </h3>
+                  <h3 class="list-group-item d-flex justify-content-between align-items-center">
+                    Direccion IP:
+                    <span class="badge badge-pill badge-light">$(ip)</span>
+                  </h3>
+                  $(if session-time-left)
+                  <h3 class="list-group-item d-flex justify-content-between align-items-center">
+                    Tiempo/Restante:
+                    <span class="badge badge-pill badge-light">$(uptime) / $(session-time-left)</span>
+                  </h3>
+                  $(else)
+                  <h3 class="list-group-item d-flex justify-content-between align-items-center">
+                    Tiempo:
+                    <span class="badge badge-pill badge-light">$(uptime)</span>
+                  </h3>
+                  $(endif)
+                  <h3 class="list-group-item d-flex justify-content-between align-items-center">
+                    Down/Up:
+                    <span class="badge badge-pill badge-light">$(bytes-out-nice) / $(bytes-in-nice)</span>
+                  </h3>
+                  $(if limit-bytes-total)
+                  <h3 class="list-group-item d-flex justify-content-between align-items-center">
+                    Datos:
+                    <span class="badge badge-pill badge-light">$(if limit-bytes-total) 
+                      <script language=javascript>result = ($(limit-bytes-total)/1000000).toFixed(2)
+                      document.write(result)</script> MB
+                      $(endif)
+                      $(if limit-bytes-total == '')Unlimited$(endif)</span>
+                  </h3>
+                  $(else)
+                  <h3 class="list-group-item d-flex justify-content-between align-items-center">
+                    Datos:
+                    <span class="badge badge-pill badge-light">$(if limit-bytes-out) 
+                      <script language=javascript>result = ($(limit-bytes-out)/1000000).toFixed(2)
+                      document.write(result)</script> MB
+                      $(endif)
+                      $(if limit-bytes-out == '')Unlimited$(endif)</span>
+                  </h3>
+                  $(endif)
+                  $(if refresh-timeout)
+                  <h3 class="list-group-item d-flex justify-content-between align-items-center">
+                    Actualizacion:
+                    <span class="badge badge-pill badge-light">$(refresh-timeout)</span>
+                  </h3>
+                  $(endif)
+                </ul>
+                </div>
+                <div class="card-footer bg-transparent border-dark text-center">
+                  <form action="$(link-logout)" name="logout" onSubmit="return openLogout()">
+                    $(if login-by-mac != 'yes')
+                    <input class="btn btn-light" style="border-radius:25px;"type="submit" value="CONECTAR">
+                    $(endif)
+                  </form>
+                </div>
+            </div>
+            </div> 
+            <div class="col-lg-7 text-center p-50px-l">
+              <img src="static\img\home-banner-7.svg" title="" alt="">
+            </div>
+          </div> 
+        </div>
+      </section>
+
+<!-- MODIFICAR ESTA SECCION -->
+        <!--
+    <section id="service" class="section">
+      <div class="container">
+        <div class="row m-45px-b sm-m-25px-b">
+          <div class="col-lg-5 col-md-10">
+            <div class="section-title-01">
+              <h2 class="dark-color font-alt">Servicios</h2>
+            </div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col-lg-4 col-md-6 m-15px-tb">
+            <div class="feature-box-02 text-center">
+              <div class="icon theme-after">
+                <i class="bi bi-pc-display-horizontal"></i>
+              </div>
+              <div class="feature-content">
+                <h5 class="font-alt dark-color">Tics</h5>
+                <p>Configuracion e instalacion de programas, Mantenimiento a computadoras</p>
+              </div>
+              <a class="link yellow-bg-after" href="#contact"><i class="yellow-bg ti-arrow-right"></i></a>
+            </div>
+          </div>
+    
+          <div class="col-lg-4 col-md-6 m-15px-tb">
+            <div class="feature-box-02 text-center">
+              <div class="icon theme-after">
+                <i class="bi bi-motherboard-fill"></i>
+              </div>
+              <div class="feature-content">
+                <h5 class="font-alt dark-color">Reparacion de dispositivos electronicos</h5>
+                <p>Diagnostico, Mantenimiento y reparacion a tarjetas electronicas, dispositivos, celulares.</p>
+              </div>
+              <a class="link yellow-bg-after" href="#contact"><i class="yellow-bg ti-arrow-right"></i></a>
+            </div>
+          </div>
+    
+          <div class="col-lg-4 col-md-6 m-15px-tb">
+            <div class="feature-box-02 text-center">
+              <div class="icon theme-after">
+                <i class="bi bi-boxes"></i>
+              </div>
+              <div class="feature-content">
+                <h5 class="font-alt dark-color">Impresion 3d</h5>
+                <p>Diseño 3d, modelado 3d, e impresion de piezas en 3d en material PLA y ABS</p>
+              </div>
+              <a class="link yellow-bg-after" href="#contact"><i class="yellow-bg ti-arrow-right"></i></a>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+      </div>
+    </section>
+  -->
+    <section id="price" class="section shapes-section gray-bg">
+      <div class="container">
+        <div class="row m-45px-b sm-m-25px-b">
+          <div class="col-lg-5 col-md-10">
+            <div class="section-title-01">
+              <h2 class="dark-color font-alt">Paquetes de internet</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          
+          <div class="col-md-6 col-lg-4 m-15px-tb">
+            <div class="price-table-01">
+              <div class="price-header">
+                <h4 class="price-title font-alt dark-color"><i class="bi bi-postcard-fill" style="font-size:35px;">     </i>  Fichas Wifi</h4>
+                <p></p>
+                <div class="price-value theme-color"><span></span>$10<span class="mo"> /3 Horas</span></div>
+                <div class="price-value theme-color"><span></span>$20<span class="mo"> / 6 Horas</span></div>
+                <div class="price-value theme-color"><span></span>$30<span class="mo"> / 12 Horas</span></div>
+                <div class="price-value theme-color"><span></span>$60<span class="mo"> / 1 dia</span></div>
+                <!--<div class="price-value theme-color"><span>*</span>Semana<span class="mo"> / $150</span></div>-->
+    
+              </div>
+              <div class="price-body">
+                <ul>
+                  <li>1 Usuario</li>
+                  <li>Tiempo Pausado</li>
+                  <!--<li>*Tiempo Corrido</li>-->
+                </ul>
+              </div>
+              <div class="price-footer">
+                <a href="#ventafichas" class="btn btn-theme">Comprar</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-4 m-15px-tb">
+            <div class="price-table-01 theme-bg active">
+              <div class="price-header">
+                <h4 class="price-title font-alt white-color"><i class="bi bi-router-fill" style="font-size:35px;">     </i>  Plan Mensual</h4>
+                <p class="white-color-light"></p>
+                <div class="price-value white-color"><span>4 usuarios</span>$400<span class="mo">/Mes</span></div>
+                <div class="price-value white-color"><span>2 usuarios</span>$350<span class="mo">/Mes</span></div>
+              </div>
+              <div class="price-body">
+                <ul class="white-color-light">
+                  <li>Velocidad 3 MB</li>
+                  <li>Instalacion en domicilio</li>
+                  <li>Red Wifi Personalizada</li>
+                </ul>
+              </div>
+              <div class="price-footer">
+                <a href="#contact" class="btn btn-t-white">Contratar</a>
+              </div>
+            </div>
+          </div>
+    
+
+          $(if trial == 'yes')
+          <div  class="col-md-6 col-lg-4 m-15px-tb">
+            <div class="price-table-01">
+              <div class="price-header">
+                <h4 id="free" class="price-title font-alt dark-color"><i class="bi bi-person-check" style="font-size:35px;">     </i>Prueba el Servicio</h4>
+                <p></p>
+                <div class="price-value theme-color"><span>*</span>5 min<span class="mo">/usuario</span></div>
+              </div>
+              <div class="price-body">
+                <ul>
+                  <li>Velocidad 5 MB</li>
+                  <li>1 prueba gratis por usuario</li>
+                  <li>Servicio gratis</li>
+                </ul>
+              </div>
+              <div  class="price-footer">
+                <a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)" class="btn btn-theme">Conectate Gratis</a>
+              </div>
+            </div>
+          </div>
+          $(endif)
+        </div>
+    
+    
+    
+      </div>
+      <div class="shapes-box">
+        <span data-parallax='{"x": 150, "y": -20, "rotateZ":500}'>
+          <img src="static\img\fl-shape-1.png" title="" alt="">
+        </span>
+        <span data-parallax='{"x": 250, "y": 150, "rotateZ":500}'>
+          <img src="static\img\fl-shape-2.png" title="" alt="">
+        </span>
+        <span data-parallax='{"x": -180, "y": 80, "rotateY":2000}'>
+          <img src="static\img\fl-shape-3.png" title="" alt="">
+        </span>
+        <span data-parallax='{"x": -20, "y": 180}'>
+          <img src="static\img\fl-shape-4.png" title="" alt="">
+        </span>
+        <span data-parallax='{"x": 300, "y": 70}'>
+          <img src="static\img\fl-shape-5.png" title="" alt="">
+        </span>
+        <span data-parallax='{"x": 250, "y": 180, "rotateZ":1500}'>
+          <img src="static\img\fl-shape-6.png" title="" alt="">
+        </span>
+        <span data-parallax='{"x": 180, "y": 10, "rotateZ":2000}'>
+          <img src="static\img\fl-shape-7.png" title="" alt="">
+        </span>
+        <span data-parallax='{"x": 60, "y": -100}'>
+          <img src="static\img\fl-shape-9.png" title="" alt="">
+        </span>
+        <span data-parallax='{"x": -30, "y": 150, "rotateZ":1500}'>
+          <img src="static\img\fl-shape-10.png" title="" alt="">
+        </span>
+      </div>
+    </section>
+    
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="row m-45px-b sm-m-25px-b">
+          <div class="col-lg-5 col-md-10">
+            <div class="section-title-01">
+              <h2 class="dark-color font-alt">Contacto</h2>
+            </div>
+          </div>
+        </div>
+    
+        <div class="row justify-content-center">
+          <div class="col-lg-8 md-m-30px-b">
+            <div class="contact-form">
+              <h4 class="dark-color font-alt m-30px-b">Para mas información envíanos un mensaje</h4>
+              <form id="contactform" class="contactform" method="post">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input id="name" name="name" type="text" placeholder="Nombre" class="form-control1"
+                        required="">
+                      <span class="input-focus-effect theme-bg"></span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input id="email" type="email" placeholder="Telefono" name="phone" class="form-control1"
+                        required="">
+                      <span class="input-focus-effect theme-bg"></span>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <textarea id="message" placeholder="Hola.. estoy interesado en uno de sus servicios..."
+                        name="message" class="form-control1" required=""></textarea>
+                      <span class="input-focus-effect theme-bg"></span>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="send">
+                      <button id="sendbttn" class="btn btn-theme" type="submit" name="send"> Enviar Mensaje </button>
+                    </div>
+                    <span class="output_message"></span>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="contact-info">
+              <i class="theme-color bi bi-geo-alt-fill"></i>
+              <h6 class="dark-color font-alt" id="ventafichas"> Centro de servicio y venta de fichas</h6>
+              <p>A un lado de la cantina de karina, en el domicilio de la sra Yolanda</p>
+            </div>
+            <div class="contact-info">
+              <i class="theme-color bi bi-whatsapp"></i>
+              <h6 class="dark-color font-alt">Whatsapp</h6>
+              <p>9211987403 y 9514487509</p>
+            </div>
+            <div class="contact-info">
+              <i class="theme-color bi bi-envelope-at-fill"></i>
+              <h6 class="dark-color font-alt">Correo Electronico</h6>
+              <p>proyectos2018mecatronica@gmail.com</p>
+            </div>
+          </div>
+        </div>
+    
+    
+      </div>
+      <script>
+    
+        var formulariowtsp = document.getElementById('contactform');
+      
+        var sendbttn = document.querySelector('#sendbttn');
+      
+      
+      
+        sendbttn.addEventListener('click', EnviarMensaje)
+      
+        function EnviarMensaje() {
+      
+      
+          let name = document.querySelector('#name').value;
+          let mensaje = document.querySelector('#message').value;
+      
+          let url = "https://api.whatsapp.com/send?phone=529211987403&text=Nombre: %0A" + name + "%0A%0AMensaje: %0A" + mensaje + "%0A";
+          window.open(url);
+      
+        }
+      
+      </script>
+    </section>
+<!-- HASTA AQUI TERMINA LAS SECCIONES-->
+
+
+    </main>
+    <footer class="footer footer-dark">
+      <div class="footer-copy">
+        <div class="row">
+          <div class="col-12">
+            <p>All © GeovaniV.V</p>
+          </div>
+        </div> 
+      </div>
+    </footer>
+    
+    <script src="static\js\jquery-3.2.1.min.js"></script>
+    <script src="static\js\jquery-migrate-3.0.0.min.js"></script>
+    <script src="static\plugin\appear\jquery.appear.js"></script>
+    <script src="static\plugin\bootstrap\js\popper.min.js"></script>
+    <script src="static\plugin\bootstrap\js\bootstrap.js"></script>
+    <script src="static\plugin\particles\particles.min.js"></script>
+    <script src="static\plugin\particles\particles-app.js"></script>
+    <script src="static\js\jquery.parallax-scroll.js"></script>
+    <script src="static\js\custom.js"></script>
+
+    $(if chap-id)
+    <script type="text/javascript" src="md5.js"></script>
+    <script type="text/javascript">
+        $('#loginForm').submit(function () {
+            var password = $('#inputPassword');
+            password.val(hexMD5('$(chap-id)' + password.val() + '$(chap-challenge)'));
+        });
+    </script>
+    $(endif)
+    <script>
+      $("#menu-toggle").click(function (e) {
+          e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+      });
+    </script>
+    <script type="text/javascript">
+    <!--
+      document.loginForm.username.focus();
+    -->
+    </script>
+
+  </body>
+</html>
+<span class="pointer" title="Remove geo" onclick="loadpage('./?remove-cookie=*A127899D&session=rb750')">…</span>

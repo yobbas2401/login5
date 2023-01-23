@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="hospot">
+  <meta name="keywords" content="hospot">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Inice sesion para conectarse</title>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link href="static\plugin\bootstrap\css\bootstrap.min.css" rel="stylesheet">
+  <link href="static\plugin\bootstrap\bootstrap-icons.css" rel="stylesheet">
+  <link href="static\plugin\owl-carousel\css\owl.carousel.min.css" rel="stylesheet">
+  <link href="static\plugin\magnific\magnific-popup.css" rel="stylesheet">
+  <link href="static\css\style.css" rel="stylesheet">
+  <link href="static\css\color\default.css" rel="stylesheet" id="color_theme">  
+  <link href="static/plugin/sweetalert/sweetalert2.min.css" rel="stylesheet">
+</head>
+
+<body data-spy="scroll" data-target="#navbar" data-offset="98">
+ 
+  $(if chap-id)
+  <form name="sendin" action="$(link-login-only)" method="post">
+    <input type="hidden" name="username" />
+    <input type="hidden" name="password" />
+    <input type="hidden" name="dst" value="$(link-orig)" />
+    <input type="hidden" name="popup" value="true" />
+  </form>
+  <script src="/md5.js"></script>
+  <script>
+      function doLogin() {
+      document.sendin.username.value = document.loginForm.username.value;
+      document.sendin.password.value = hexMD5('$(chap-id)' + document.loginForm.password.value + '$(chap-challenge)');
+      document.sendin.submit();
+      return false;
+    }
+    
+  </script>
+  $(endif)
+
+
+  <div id="loading">
+    <div class="load-circle"><span class="one"></span></div>
+  </div>
+  <header style="margin-top: -30px ;">
+    <nav class="navbar header-nav navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img class="light-logo" src="static\img\logo-light.svg" title="" alt="">
+          <img class="dark-logo" src="static\img\logo.svg" title="" alt="">
+        </a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section id="home" class="home-banner-03 theme-bg bg-effect-box">
+      <div class="bg-effect bg-cover" style="background-image: url(static/img/banner-effect-6.svg); width: 100%;"></div>
+      <div id="particles_effect" class="particles-effect"></div>
+      <div class="container">
+        <div class="row align-items-center justify-content-center p-30px-tb sm-p-60px-b">
+          <div class="col-lg-5 md-p-20px-tb">
+            <h1 class="font-alt white-color">Inicia Sesion</h1>
+            <p class="white-color-light sizefont">Ingrese o escanee su ficha para conectarse a internet</p>
+            $(if trial == 'yes')
+            <p class="white-color-light sizefont">Prueba gratis disponible clic aqui>> <a class="white-color-light" href="#free"><i style="font-size: 25px;" class="bi bi-bag-check-fill"></i></a></p>
+            <!--<div class="col-md-12">
+            <a class="btn btn-block btn-light" href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)"><span class="btn-elem-wrap"><span class="text" style="color: darkblue">PRUEBA GRATIS</span></span></a>
+            </div>-->
+            $(endif)
+            <div class="subscribe-block">
+              <div class="card-block py-lg px-md">
+                <form class="md-form form-light" role="form" name="loginForm"action="$(link-login-only)" method="post" $(if chap-id) onSubmit="return doLogin()" $(endif)>
+                  <input type="hidden" name="dst" value="$(link-orig)" />
+                  <input type="hidden" name="popup" value="true" />
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        
+                        <label for="inputUser" class="form-label"></label>
+                        <div class="md-form-line-wrap">
+                          <img class="ico" src="static/img/user.svg" alt="#">
+                          <input id="inputUser" type="text" name="username" placeholder="Usuario" class="form-control " autofocus required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="inputPassword" class="form-label"></label>
+                        <div class="md-form-line-wrap">
+                          <img class="ico" src="static/img/password.svg" alt="#">
+                          <input id="inputPassword" type="password" name="password" placeholder="Contraseña"
+                            class="form-control" required>
+                        </div>
+                      </div>
+                    </div>
+                    
+
+                      <!--$(if trial == 'yes')
+
+                        <div class="col-md-6">
+                          <a class="btn btn-block btn-light" href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)"><span class="btn-elem-wrap"><span class="text" style="color: darkblue">PRUEBA GRATIS</span></span></a>
+                        </div>
+                      $(endif)-->
+                    <br>
+                    <br>
+                    <div class="col-md-12" style="margin-top: 15px;">
+                      <button type="submit" class="btn btn-block btn-light"><span class="btn-elem-wrap"><span
+                            class="text theme-color"><i class="bi bi-box-arrow-in-right" style="font-size:25px ;"></i>CONECTAR</span></span></button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="card border-dark mb-3">
+              <div class="card-header"><h5 class="card-title"> <i class="bi bi bi-postcard-fill"></i>  Internet por fichas</h5></div>
+              <div class="card-body"style="padding: 1px;">
+                <table class="table" id="paketwifi">
+            
+                  <thead class="table-dark">
+                  <tr>
+                    <th scope="col">Ficha</th>
+                    <th scope="col">Tiempo</th>
+                    <th scope="col">Precio</th>
+                  </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                  <script type="text/javascript" charset="utf-8">
+                    d3.text("paket-wifi.csv", function(data) {
+                        var parsedCSV = d3.csv.parseRows(data);
+        
+                        var container = d3.select("tbody.table-group-divider")
+        
+                            .selectAll("tr")
+                                .data(parsedCSV).enter()
+                                .append("tr")
+        
+                            .selectAll("td")
+                                .data(function(d) { return d; }).enter()
+                                .append("td")
+                                .text(function(d) { return d; });
+                    });
+              </script>
+              </tbody>
+              </table>
+    
+              </div>
+    
+            </div>
+          
+            <div class="card border-dark mb-3">
+              <div class="card-header"><h5 class="card-title"> <i class="bi bi-geo-alt-fill"></i>  Punto de venta</h5>
+                </div>
+              <div class="card-body">
+                <p class="card-text">En el domicilio de la señora Yolanda Reyes Miguel</p>
+              </div>
+            </div>
+          </div>
+            
+          
+          <div class="col-lg-7 text-center p-15px-l" style="margirn-top:25px;">
+            <img src="static\img\home-banner-7.svg" title="" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--
+    <section id="service" class="section">
+      <div class="container">
+        <div class="row m-45px-b sm-m-25px-b">
+          <div class="col-lg-5 col-md-10">
+            <div class="section-title-01">
+              <h2 class="dark-color font-alt">Servicios</h2>
+            </div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col-lg-4 col-md-6 m-15px-tb">
+            <div class="feature-box-02 text-center">
+              <div class="icon theme-after">
+                <i class="bi bi-pc-display-horizontal"></i>
+              </div>
+              <div class="feature-content">
+                <h5 class="font-alt dark-color">Tics</h5>
+                <p>Configuracion e instalacion de programas, Mantenimiento a computadoras</p>
+              </div>
+              <a class="link yellow-bg-after" href="#contact"><i class="yellow-bg ti-arrow-right"></i></a>
+            </div>
+          </div>
+    
+          <div class="col-lg-4 col-md-6 m-15px-tb">
+            <div class="feature-box-02 text-center">
+              <div class="icon theme-after">
+                <i class="bi bi-motherboard-fill"></i>
+              </div>
+              <div class="feature-content">
+                <h5 class="font-alt dark-color">Reparacion de dispositivos electronicos</h5>
+                <p>Diagnostico, Mantenimiento y reparacion a tarjetas electronicas, dispositivos, celulares.</p>
+              </div>
+              <a class="link yellow-bg-after" href="#contact"><i class="yellow-bg ti-arrow-right"></i></a>
+            </div>
+          </div>
+    
+          <div class="col-lg-4 col-md-6 m-15px-tb">
+            <div class="feature-box-02 text-center">
+              <div class="icon theme-after">
+                <i class="bi bi-boxes"></i>
+              </div>
+              <div class="feature-content">
+                <h5 class="font-alt dark-color">Impresion 3d</h5>
+                <p>Diseño 3d, modelado 3d, e impresion de piezas en 3d en material PLA y ABS</p>
+              </div>
+              <a class="link yellow-bg-after" href="#contact"><i class="yellow-bg ti-arrow-right"></i></a>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+      </div>
+    </section>
+  -->    
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="row m-45px-b sm-m-25px-b">
+          <div class="col-lg-5 col-md-10">
+            <div class="section-title-01">
+              <h2 class="dark-color font-alt">Contacto</h2>
+            </div>
+          </div>
+        </div>
+    
+        <div class="row justify-content-center">
+          <div class="col-lg-8 md-m-30px-b">
+            <div class="contact-form">
+              <h4 class="dark-color font-alt m-30px-b">Para mas información envíanos un mensaje</h4>
+              <form id="contactform" class="contactform" method="post">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input id="name" name="name" type="text" placeholder="Nombre" class="form-control1"
+                        required="">
+                      <span class="input-focus-effect theme-bg"></span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input id="email" type="email" placeholder="Telefono" name="phone" class="form-control1"
+                        required="">
+                      <span class="input-focus-effect theme-bg"></span>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <textarea id="message" placeholder="Hola.. estoy interesado en uno de sus servicios..."
+                        name="message" class="form-control1" required=""></textarea>
+                      <span class="input-focus-effect theme-bg"></span>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="send">
+                      <button id="sendbttn" class="btn btn-theme" type="submit" name="send"> Enviar Mensaje </button>
+                    </div>
+                    <span class="output_message"></span>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="contact-info">
+              <i class="theme-color bi bi-geo-alt-fill"></i>
+              <h6 class="dark-color font-alt" id="ventafichas"> Centro de servicio y venta de fichas</h6>
+              <p>En el domicilio de la sra Yolanda Reyes</p>
+            </div>
+            <div class="contact-info">
+              <i class="theme-color bi bi-whatsapp"></i>
+              <h6 class="dark-color font-alt">Whatsapp</h6>
+              <p>9211987403 y 9514487509</p>
+            </div>
+            <div class="contact-info">
+              <i class="theme-color bi bi-envelope-at-fill"></i>
+              <h6 class="dark-color font-alt">Correo Electronico</h6>
+              <p>proyectos2018mecatronica@gmail.com</p>
+            </div>
+          </div>
+        </div>
+    
+    
+      </div>
+      <script>
+    
+        var formulariowtsp = document.getElementById('contactform');
+      
+        var sendbttn = document.querySelector('#sendbttn');
+      
+      
+      
+        sendbttn.addEventListener('click', EnviarMensaje)
+      
+        function EnviarMensaje() {
+      
+      
+          let name = document.querySelector('#name').value;
+          let mensaje = document.querySelector('#message').value;
+      
+          let url = "https://api.whatsapp.com/send?phone=529211987403&text=Nombre: %0A" + name + "%0A%0AMensaje: %0A" + mensaje + "%0A";
+          window.open(url);
+      
+        }
+      
+      </script>
+    </section>
+    
+    
+    
+  </main>
+  <footer class="footer footer-dark">
+    <div class="footer-copy">
+      <div class="row">
+        <div class="col-12">
+          <p>All ©Wifi San juan del rio.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  
+  
+  <script src="static/plugin/sweetalert/sweetalert2.all.min.js"></script>
+  <script src="static\js\jquery-3.2.1.min.js"></script>
+  <script src="static\js\jquery-migrate-3.0.0.min.js"></script>
+  <script src="static\plugin\appear\jquery.appear.js"></script>
+  <script src="static\plugin\bootstrap\js\popper.min.js"></script>
+  <script src="static\plugin\bootstrap\js\bootstrap.js"></script>
+  <script src="static\plugin\particles\particles.min.js"></script>
+  <script src="static\plugin\particles\particles-app.js"></script>
+  <script src="static\js\jquery.parallax-scroll.js"></script>
+  <script src="static\js\custom.js"></script>
+  $(if error)
+  <script>
+  Swal.fire({
+    title: "Error",
+    //text:"$(error)",
+    html:'Error: $(error)</font>',
+    icon:"error"})
+  </script>
+  $(endif)
+  <script>
+    $("#menu-toggle").click(function (e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+  <script type="text/javascript">
+    
+      document.loginForm.username.focus();
+    
+  </script>
+
+
+</body>
+
+</html>
