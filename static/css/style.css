@@ -1488,11 +1488,11 @@ img {
 
 .home-banner-03 .subscribe-block .form-control {
   /* height: 56px; */
-  padding-left: 60px;
+  /* padding-left: 60px; */
   font-size: 18px;
   border: white;
   border-style: solid;
-  /* border-width: 2px; */
+  border-width: 2px;
   /* justify-content: center; */
 }
 .home-banner-03 .subscribe-block .form-group .btn {
@@ -4539,7 +4539,7 @@ blockquote.blockquote-left .parson {
 .p-15px-tb {padding-top: 15px; padding-bottom: 15px }
 .p-20px-tb {padding-top: 20px; padding-bottom: 20px }
 .p-25px-tb {padding-top: 25px; padding-bottom: 25px }
-.p-30px-tb {padding-top: 30px; padding-bottom: 30px }
+.p-30px-tb {/* padding-top: 30px; *//* padding-bottom: 30px; */}
 .p-35px-tb {padding-top: 35px; padding-bottom: 35px }
 .p-40px-tb {padding-top: 40px; padding-bottom: 40px }
 .p-45px-tb {padding-top: 45px; padding-bottom: 45px }
@@ -5377,7 +5377,7 @@ blockquote.blockquote-left .parson {
   .md-p-5px-tb {padding-top:  5px; padding-bottom:  5px }
   .md-p-10px-tb {padding-top: 10px; padding-bottom: 10px }
   .md-p-15px-tb {padding-top: 15px; padding-bottom: 15px }
-  .md-p-20px-tb {padding-top: 20px; padding-bottom: 20px }
+  .md-p-20px-tb {/* padding-top: 20px; *//* padding-bottom: 20px; */}
   .md-p-25px-tb {padding-top: 25px; padding-bottom: 25px }
   .md-p-30px-tb {padding-top: 1px;padding-bottom: 30px}
   .md-p-35px-tb {padding-top: 35px; padding-bottom: 35px }
