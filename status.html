@@ -19,7 +19,7 @@
     <link href="static\css\style.css" rel="stylesheet">
     <link href="static\css\color\default.css" rel="stylesheet" id="color_theme">
     <link href="static\plugin\bootstrap\bootstrap-icons.css" rel="stylesheet">
-
+    <script src="d3.v3.min.js"></script>
   </head>
 
   <body data-spy="scroll" data-target="#navbar" data-offset="98">
@@ -62,7 +62,7 @@
               
                 <!-- Example Code -->
     
-        <div class="card" style="margin-bottom:10px !important;">
+            <div class="card" style="margin-bottom:10px !important;">
           
           <h5 class="card-header" style="background: #000000ad;">Estado<span class="badge bg-success rounded-pill" style="font-size: x-small;">Conectado</span></h5>
           <div class="card-body">
@@ -105,12 +105,13 @@
             </ul>
             <form action="$(link-logout)" name="logout" onSubmit="return openLogout()">
               $(if login-by-mac != 'yes')
-              <input class="btn btn-ligth" style="margin-top: 15px;"type="submit" value="Desconectar">
+              <input class="btn btn-danger" style="margin-top: 15px;"type="submit" value="Desconectar">
               <br>
               $(endif)
             </form>
           </div>
-      </div>
+            </div>
+            
             <div class="card border-dark mb-3">
               <div class="card-header" style="background: #000000ad;"><h5 class="card-title"> <i class="bi bi bi-postcard-fill"></i>  PRECIOS</h5></div>
               <div class="card-body"style="padding: 1px;">
@@ -154,14 +155,11 @@
                 <p class="card-text"style="color: aliceblue; font-family: monospace;font-weight: 900;">En el domicilio de la señora Yolanda Reyes Miguel</p>
               </div>
             </div>
-            
-              
-              
-            </div> 
-            <div class="col-lg-7 text-center p-50px-l">
-              <img src="static\img\home-banner-7.svg" title="" alt="">
-            </div>
           </div> 
+          <div class="col-lg-7 text-center p-50px-l">
+              <img src="static\img\home-banner-7.svg" title="" alt="">
+          </div>
+      </div> 
         </div>
       </section>  
   
