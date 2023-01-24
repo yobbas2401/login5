@@ -51,7 +51,7 @@
       </nav> 
     </header>
     <main>
-      <section id="home" class="home-banner-03 theme-ok bg-effect-box">
+      <section id="home" class="home-banner-03 theme-bg bg-effect-box">
         <div class="bg-effect bg-cover" style="background-image: url(static/img/banner-effect-6.svg);"></div>
         <div id="particles_effect" class="particles-effect"></div>
         <div class="container">
@@ -62,42 +62,42 @@
               
                 <!-- Example Code -->
     
-        <div class="card" style="margin-bottom:50px !important;">
-          <h5 class="card-header ">Estado de conexion</h5>
+        <div class="card" style="margin-bottom:10px !important;">
+          
+          <h5 class="card-header" style="background: #000000ad;">Estado<span class="badge bg-success rounded-pill" style="font-size: x-small;">Conectado</span></h5>
           <div class="card-body">
-            <h5 class="card-title">Conectado</h5>
             <ul class="list-group">
 
               <li class="list-group-item d-flex justify-content-between align-items-center">
-              <i class="bi-person-bounding-box" style="font-size:x-large;"></i>
-                <span class="badge bg-success rounded-pill">$(username)</span>
+              <i class="bi-person-bounding-box" style="font-size:x-large;color:var(--warning);"></i>
+                <span class="badge bg-light rounded-pill">$(username)</span>
               </li>
 
               <li class="list-group-item d-flex justify-content-between align-items-center">
-              <i class="bi bi-ethernet" style="font-size:x-large;color: aliceblue;"></i>
-              <span class="badge bg-success rounded-pill">$(ip)</span>
+              <i class="bi bi-ethernet" style="font-size:x-large;color:var(--warning);"></i>
+              <span class="badge bg-light rounded-pill">$(ip)</span>
               </li>
 
               $(if session-time-left)
               <li class="list-group-item d-flex justify-content-between align-items-center">
-              <i class="bi-stopwatch-fill" style="font-size:x-large;color: aliceblue;"></i>
-              <span class="badge bg-success rounded-pill">$(uptime)</span>
+              <i class="bi-stopwatch-fill" style="font-size:x-large;color:var(--warning);"></i>
+              <span class="badge bg-light rounded-pill">$(uptime)</span>
               </li>
 
               <li class="list-group-item d-flex justify-content-between align-items-center">
-                  <i class="bi-hourglass-split" style="font-size:x-large;color: aliceblue;"></i>
-                  <span class="badge bg-success rounded-pill">$(session-time-left)</span>
+                  <i class="bi-hourglass-split" style="font-size:x-large;color:var(--warning);"></i>
+                  <span class="badge bg-light rounded-pill">$(session-time-left)</span>
               </li>
               $(else)
               <li class="list-group-item d-flex justify-content-between align-items-center">
-                  <i class="bi-stopwatch-fill" style="font-size:x-large;color: aliceblue;"></i>
-                  <span class="badge bg-success rounded-pill">$(uptime)</span>
+                  <i class="bi-stopwatch-fill" style="font-size:x-large;color:var(--warning);"></i>
+                  <span class="badge bg-light rounded-pill">$(uptime)</span>
               </li>
               $(endif)
 
               <li class="list-group-item d-flex justify-content-between align-items-center">
-                  <i class="bi-arrow-down-up" style="font-size:x-large;color: aliceblue;"></i>
-                  <span class="badge bg-success rounded-pill">$(bytes-out-nice) / $(bytes-in-nice)</span>
+                  <i class="bi-arrow-down-up" style="font-size:x-large;color:var(--warning);"></i>
+                  <span class="badge bg-light rounded-pill">$(bytes-out-nice) / $(bytes-in-nice)</span>
               </li>
 
 
@@ -112,7 +112,7 @@
           </div>
       </div>
             <div class="card border-dark mb-3">
-              <div class="card-header"><h5 class="card-title"> <i class="bi bi bi-postcard-fill"></i>  PRECIOS</h5></div>
+              <div class="card-header" style="background: #000000ad;"><h5 class="card-title"> <i class="bi bi bi-postcard-fill"></i>  PRECIOS</h5></div>
               <div class="card-body"style="padding: 1px;">
                 <table class="table" id="paketwifi">
             
@@ -148,7 +148,7 @@
             </div>
           
             <div class="card border-dark mb-3">
-              <div class="card-header"><h5 class="card-title"> <i class="bi bi-geo-alt-fill"></i>  PUNTO DE VENTA</h5>
+              <div class="card-header" style="background: #000000ad;"><h5 class="card-title"> <i class="bi bi-geo-alt-fill"></i>  PUNTO DE VENTA</h5>
                 </div>
               <div class="card-body" style="padding: 3px;">
                 <p class="card-text"style="color: aliceblue; font-family: monospace;font-weight: 900;">En el domicilio de la señora Yolanda Reyes Miguel</p>
